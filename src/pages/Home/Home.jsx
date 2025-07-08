@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Banner from './Banner';
 import Hotjobs from './Hotjobs';
 
-const jobsPromise = fetch('http://localhost:3000/jobs')
-    .then(res=> res.json())
+
 const Home = () => {
 
-    
+    const jobsPromise = fetch('http://localhost:3000/jobs')
+    .then(res=> res.json())
 
 
     return (
         <div>
             <Banner></Banner>
-            <Hotjobs jobsPromise={jobsPromise} ></Hotjobs>
+            <Suspense fallback="Hot Jobs of the day">
+                <Hotjobs jobsPromise={jobsPromise} ></Hotjobs>
+            </Suspense>
         </div>
     );
 };
