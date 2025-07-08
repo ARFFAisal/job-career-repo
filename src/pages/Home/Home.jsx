@@ -1,11 +1,18 @@
 import React from 'react';
 import Banner from './Banner';
-import { motion } from "motion/react"
+import Hotjobs from './Hotjobs';
 
+const jobsPromise = fetch('http://localhost:3000/jobs')
+    .then(res=> res.json())
 const Home = () => {
+
+    
+
+
     return (
         <div>
             <Banner></Banner>
+            <Hotjobs jobsPromise={jobsPromise} ></Hotjobs>
         </div>
     );
 };
