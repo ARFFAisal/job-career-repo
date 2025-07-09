@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const JobDetails = () => {
-    const {title, jobType, company, category} = useLoaderData();
+    const {_id,title, jobType, company, category} = useLoaderData();
     
     return (
         <div>
@@ -10,6 +10,9 @@ const JobDetails = () => {
             <p>{jobType}</p>
             <p>{title}</p>
             <p>{category}</p>
+          <Link to={`/jobapply/${_id}`}>
+            <button className='btn btn-primary'>Apply Now</button>
+            </Link>
         </div>
     );
 };

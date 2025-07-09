@@ -6,6 +6,8 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/register/Register";
 import Signin from "../pages/SignIn/Signin";
 import JobDetails from "../pages/JobDetails/JobDetails";
+import PrivetRoute from "../route/PrivetRoute";
+import JobApply from "../pages/JobApply/JobApply";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
         {
             path: "/register",
             Component: Register,
+        },
+        {
+          path: 'jobapply/:id',
+          element: <PrivetRoute><JobApply></JobApply></PrivetRoute>
         },
         {
             path: '/signin',
